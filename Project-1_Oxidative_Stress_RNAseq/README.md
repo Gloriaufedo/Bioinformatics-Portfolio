@@ -23,10 +23,13 @@ Gene expression dataset (GSE104462) obtained from GEO database, consisting of:
 2. **Differential Expression Analysis**
 - Linear modeling using Ordinary Least Squares (OLS)
 - Comparison:
+  
 i. Erastin vs Control
 
 ii. Ferrostatin vs Control
+
 - Computed:
+
 i. log2 fold change
 
 ii. p-values
