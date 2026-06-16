@@ -21,7 +21,7 @@ Gene expression dataset (GSE104462) obtained from GEO database, consisting of:
 - Constructed metadata table for sample grouping
 
 2. **Differential Expression Analysis**
-- Linear modeling using Ordinary Least Squares (OLS)
+Linear modeling using Ordinary Least Squares (OLS)
 - Comparison:
   
 i. Erastin vs Control
@@ -50,15 +50,21 @@ padj < 0.05
 5. **Heatmap**
 - Top differentially expressed genes visualized across samples
 - Used hierarchical clustering to identify expression patterns across:
+  
 i. Control
+
 ii. Erastin
+
 iii. Ferrostatin
 
 6. **GSEA (Gene Set Enrichment Analysis)**
 - Performed enrichment using gseapy (Enrichr API)
 - Gene sets used:
+  
 i. KEGG 2021 Human
+
 ii. GO Biological Process 2023
+
 iii. Reactome 2022
 
 # Results
