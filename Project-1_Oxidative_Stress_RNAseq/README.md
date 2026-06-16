@@ -4,8 +4,6 @@
 
 To investigate transcriptional changes in HepG2 liver cancer cells under ferroptosis induction (Erastin) and inhibition (Ferrostatin), identifying key genes and pathways involved in oxidative stress, lipid peroxidation, and iron-dependent cell death.
 
----
-
 # Dataset
 
 Gene expression dataset (GSE104462) obtained from GEO database, consisting of:
@@ -13,8 +11,6 @@ Gene expression dataset (GSE104462) obtained from GEO database, consisting of:
 - Control samples (C1–C3)
 - Erastin-treated samples (E1–E3)
 - Ferrostatin-treated samples (F1–F3)
-
----
 
 # Methods
 
@@ -62,8 +58,6 @@ i. KEGG 2021 Human
 ii. GO Biological Process 2023
 iii. Reactome 2022
 
----
-
 # Results
 
 1. Erastin induced strong transcriptional reprogramming associated with:
@@ -76,8 +70,6 @@ iii. Reactome 2022
 - Glutathione metabolism
 - Reactive oxygen species detoxification
 - Iron-dependent lipid peroxidation
-
----
 
 # Conclusions
 
