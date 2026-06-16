@@ -1,6 +1,5 @@
 ---
 # 🧬 Ferroptosis Transcriptomic Analysis in HepG2 Cells
----
 
 # Objective
 
