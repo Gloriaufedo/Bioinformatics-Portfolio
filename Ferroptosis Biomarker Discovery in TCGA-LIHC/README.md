@@ -1,5 +1,7 @@
 # 🧬 Ferroptosis Biomarker Discovery in TCGA-LIHC
 
+ ![SURVIVAL_ANALYSIS](figures/km_curve_gpx4_lihc.png)
+
 ## Objective
 To investigate ferroptosis-associated molecular alterations in hepatocellular carcinoma (HCC) using TCGA-LIHC transcriptomic and clinical data, and evaluate the prognostic significance of *GPX4*, a key regulator of ferroptosis resistance.
 
