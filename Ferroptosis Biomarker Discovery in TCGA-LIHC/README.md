@@ -91,7 +91,7 @@ Preranked GSEA revealed significant enrichment of key oncogenic and metabolic pa
 
 The generated graphics from this pipeline are saved in the project directory:
 * `volcano_tcga_lihc.png` – DEA distribution tracking significant up/down-regulated features.
-* `gpx4_tumor_normal_boxplot.png` – Polish-styled Normal vs. Tumor distribution boxplot overlaid with data jitter and Wilcoxon significance calculations.
+* `gpx4_tumor_normal_boxplot.png` – Normal vs. Tumor distribution boxplot overlaid with data jitter and Wilcoxon significance calculations.
 * `km_curve_gpx4_lihc.png` – Unified 5-year overall survival projection separating patient expression arms.
 
 ---
