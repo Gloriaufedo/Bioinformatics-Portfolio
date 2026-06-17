@@ -1,0 +1,10 @@
+Python
+Pandas
+NumPy
+Matplotlib
+Seaborn
+Statsmodels
+Scikit-Learn
+Lifelines
+GSEAPY
+TCGA/GDC API
