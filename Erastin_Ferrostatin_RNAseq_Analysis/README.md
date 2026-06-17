@@ -1,4 +1,4 @@
-# Ferroptosis Transcriptomic Analysis in HepG2 Cells
+# 🧬 Ferroptosis Transcriptomic Analysis in HepG2 Cells
 
 ![PCA](figures/pca_plot.png)
 
