@@ -82,6 +82,13 @@ iii. Reactome 2022
 - Reactive oxygen species detoxification
 - Iron-dependent lipid peroxidation
 
+## Key Results
+
+- Identified X significantly differentially expressed genes after Erastin treatment.
+- Ferrostatin partially reversed ferroptosis-associated transcriptional signatures.
+- PCA demonstrated clear separation between treatment groups.
+- GSEA highlighted pathways related to oxidative stress and mitochondrial function.
+
 # Conclusions
 
 This study demonstrates clear transcriptomic signatures of ferroptosis in HepG2 cells. The combination of differential expression, PCA, and pathway enrichment provides strong evidence of:
