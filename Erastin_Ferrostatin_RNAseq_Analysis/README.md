@@ -14,6 +14,21 @@ Gene expression dataset (GSE104462) obtained from GEO database, consisting of:
 - Erastin-treated samples (E1–E3)
 - Ferrostatin-treated samples (F1–F3)
 
+# Tools:
+`Python`
+`Pandas`
+`Statsmodels`
+`Scikit-learn`
+`GSEApy`
+`Matplotlib`
+
+# Key Analyses:
+✔ Differential Expression
+✔ PCA
+✔ Volcano Plots
+✔ Heatmap
+✔ GSEA
+
 # Methods
 
 1. **Data Pre-processing**
