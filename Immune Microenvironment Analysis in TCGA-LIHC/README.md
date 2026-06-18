@@ -1,5 +1,7 @@
 # 🧬 Immune Microenvironment Analysis in TCGA-LIHC
 
+ ![COX_Multivariable](figures/cox_multivariable_forest_plot.png)
+
 ## Objective
 To investigate the relationship between tumor immune infiltration and patient survival in Liver Hepatocellular Carcinoma (TCGA-LIHC), with a focus on determining whether CD8 T-cell enrichment serves as an independent prognostic biomarker after controlling for key clinical risk factors.
 
