@@ -107,7 +107,7 @@ While univariable Kaplan-Meier analysis showed no significant association (p = 0
 
 --- 
 
-***🧬 Project 4: Single-Cell RNA-seq Analysis of Human PBMCs**
+**🧬 Project 4: Single-Cell RNA-seq Analysis of Human PBMCs**
 
 🎯 Objective
 To analyze single-cell transcriptomics data from human peripheral blood mononuclear cells (PBMCs) and map the immune cell landscape through unsupervised clustering, differential expression profiling, and canonical marker gene annotation.
