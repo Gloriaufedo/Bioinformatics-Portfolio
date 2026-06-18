@@ -47,48 +47,53 @@ Welcome to my bioinformatics portfolio. This repository contains data-driven gen
 ---
 
 ## 📋 Portfolio Projects Overview
-**🧬 Project 1: Immune Microenvironment Analysis in TCGA-LIHC**
 
-- Objective: I checked how the presence of adaptive immune cells affects how long liver cancer (TCGA-LIHC) patients live. The main goal was to see if CD8 T-cell levels can predict survival on their own after removing the effects of clinical risks like age and cancer stage.
+**🧬 Project 1: Erastin & Ferrostatin RNA-seq Analysis in HepG2 Cells**
 
-- Methodology:
-
-  - I pulled raw gene expression data directly from the GDC API.
-    
-  - I used single-sample Gene Set Enrichment Analysis (ssGSEA) with the gseapy library to rank and score immune cells for each patient, which helped cut out background noise from the data.
-    
-  - I used a Multivariable Cox Proportional Hazards Model to analyze the continuous CD8 T-cell scores while controlling for clinical factors like patient age and AJCC tumor stage.
-
-- Key Analytical Result: My initial Kaplan-Meier test showed a non-significant result (p=0.120) because the high death rates in late-stage cancer patients were covering up the true pattern. Once I switched to the multivariable model and controlled for cancer stages, the real biological signal came out. CD8 T-cell presence proved to be a significant independent protective factor (p=0.04, Hazard Ratio = 0.61). This means that as CD8 T-cell levels increase, patient mortality risk drops by 39%.
-
-**📊 Project 2: Transcriptomic Differential Expression Pipeline**
-
-- Objective: I mapped out the differences in gene expression between healthy control tissues and matching tumor biopsies to find the specific genes driving cancer growth.
+- Objective: I investigated the transcriptomic changes in HepG2 liver cancer cells when ferroptosis is turned on using Erastin and when it is blocked using Ferrostatin to spot the exact genes and molecular pathways controlling oxidative stress, lipid damage, and iron-dependent cell death.
 
 - Methodology:
 
-  - I handled quality control filtering and normalizations across the raw sequencing data.
-    
-  -I built automated workflows to pick out highly relevant genes using log2-fold change thresholds alongside adjusted p-values (q<0.05).
+  - I loaded the expression matrix from GEO and applied a log2​(x+1) transformation to normalize expression values across all samples.
 
-- Key Analytical Result: I successfully isolated specific biomarker targets and visualized them clearly using high-resolution volcano plots and clustered heatmaps to show how different tissues separate based on their transcripts.
+  - I used Ordinary Least Squares (OLS) linear modeling to run two main comparisons: Erastin vs Control and Ferrostatin vs Control, calculating False Discovery Rate (FDR) adjusted p-values using the Benjamini–Hochberg correction.
 
-**🧬 Project 3: High-Throughput Genomic Variant Calling Framework**
+  - I ran pathway enrichment using gseapy via the Enrichr API against KEGG, GO Biological Process, and Reactome databases.
 
-    Objective: I built an end-to-end pipeline to align gene sequences, fix quality scores, and spot single-nucleotide variants (SNVs) in genomic data.
+- Key Analytical Result: Erastin triggered a heavy shift in genes tied to oxidative stress responses, lipid metabolism issues, and direct ferroptosis pathways. The analysis proved that Ferrostatin partially reversed these Erastin-induced shifts, confirming its protective rescue effect at the transcriptomic level.
 
-    Methodology:
+**📊 Project 2: Ferroptosis Biomarker Discovery in TCGA-LIHC**
 
-        I wrote structured code using fast alignment tools like BWA-MEM to map raw reads directly to reference genomes.
+- Objective: I used transcriptomic and clinical data from the TCGA-LIHC project to study how ferroptosis changes at the molecular level in liver cancer and evaluated the prognostic significance of GPX4, a key regulator of ferroptosis resistance.
 
-        I integrated standard filtering tools like Samtools and GATK to separate true somatic mutations from sequencing errors.
+- Methodology:
 
-    Key Analytical Result: The pipeline produced clean variant files showing mutation profiles, allele frequencies, and micro-insertions that are ready for clinical use.
+  - I streamed high-throughput RNA-Seq counts and matched clinical metrics directly from the GDC API, applying a log2​(Counts+1) transformation to stabilize variance.
 
-🔬 Key Engineering Principles Applied
+  - I used a non-parametric Wilcoxon Rank-Sum test to validate GPX4 expression levels between healthy tissue and tumor tissue.
 
-    Controlling for Confounders: I look beyond basic single-variable charts to run multivariable regressions. This makes sure that clinical risks like a patient's age or cancer stage do not hide important biological facts.
+  - I partitioned the cohort using an automated median expression cutoff into High GPX4 and Low GPX4 arms to estimate 5-year overall survival probabilities via Kaplan-Meier curves and Log-rank testing.
 
-    Rank-Based Normalization: I use ranking methods like ssGSEA instead of simple averages. This gives reproducible metrics that do not suffer from batch effects or scale differences.
+- Key Analytical Result: GPX4 expression levels were heavily elevated in primary tumor samples compared to healthy liver tissues (p<0.001). Patients with high GPX4 levels in their tumors had a faster, steeper drop in survival probability over the 5-year tracking window (p<0.05), proving that high GPX4 levels match up with poorer clinical outcomes.
 
-    Clean Code and Structure: I keep my data tables, environment setup files (requirements.txt), and analysis notebooks organized side by side so anyone can run the pipelines easily.
+**🧬 Project 3: Immune Microenvironment Analysis in TCGA-LIHC**
+
+- Objective: I investigated how the presence of immune cells inside tumors relates to how long liver cancer patients live, focusing on determining whether CD8 T-cell enrichment acts as an independent prognostic biomarker after removing the effects of clinical risks like age and tumor stage.
+
+- Methodology:
+
+  - I used single-sample Gene Set Enrichment Analysis (ssGSEA) via gseapy to rank target marker genes within individual patient profiles, minimizing transcriptomic background noise to isolate CD8 T-cell signatures.
+
+  - I built a Multivariable Cox Proportional Hazards model using lifelines to evaluate the CD8 T-cell scores as a continuous gradient alongside clinical covariates like age at diagnosis and AJCC tumor stage.
+
+- Key Analytical Result: While my initial univariable Kaplan-Meier split failed to cross the line for statistical significance (p=0.120), switching to a multivariable model successfully isolated the true biological signal. After adjusting for age and tumor stage, CD8 T-cell infiltration emerged as a highly significant protective factor (p=0.04, Hazard Ratio = 0.61), indicating a 39% reduction in overall mortality risk per unit increase in enrichment.
+
+--- 
+
+# 🔬 Key Engineering Principles Applied
+
+1. Controlling for Confounders: I look beyond basic single-variable charts to run robust multivariable regressions. This makes sure that heavy clinical risks like a patient's cancer stage do not hide important biological facts.
+
+2. Rank-Based Normalization: I use ranking methods like ssGSEA instead of simple arithmetic averages. This gives reproducible metrics that do not suffer from background sequencing noise or scale differences.
+
+3. Clean Code and Structure: I keep my data tables, environment setup files (requirements.txt), and analysis notebooks structured side by side in every directory so anyone can deploy and run the pipelines easily. data tables, environment setup files (requirements.txt), and analysis notebooks organized side by side so anyone can run the pipelines easily.
