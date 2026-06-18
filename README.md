@@ -1,8 +1,9 @@
 # 🧬 Computational Genomics & Bioinformatics Portfolio
 
-This repository serves as a centralized hub for production-grade computational biology pipelines leveraging public cancer genomics and transcriptomic data. The workflows focus on extracting high-fidelity biological signals, quantifying cellular microenvironments, and modeling patient survival using advanced statistical frameworks.
+Welcome to my bioinformatics portfolio. This repository contains data-driven genomics pipelines where I work with public cancer genomics and transcriptomic data. I built these projects to extract biological signals from raw data, calculate immune cell presence inside tumors, and predict patient survival outcomes using statistical models.
 
 ---
+
 ## 📂 Repository Architecture
 
 ```text
@@ -31,7 +32,7 @@ This repository serves as a centralized hub for production-grade computational b
 ```
 ---
 
-## 🛠️ Core Tech Stack & Frameworks
+🛠️ Core Tech Stack & Frameworks
 
 `Bioinformatics Core: GSEApy, Biopython, GDC API Client`
 
@@ -48,47 +49,46 @@ This repository serves as a centralized hub for production-grade computational b
 ## 📋 Portfolio Projects Overview
 **🧬 Project 1: Immune Microenvironment Analysis in TCGA-LIHC**
 
-- Objective: Investigate the relationship between adaptive immune cell infiltration and patient survival in Liver Hepatocellular Carcinoma cohorts, determining whether CD8 T-cell enrichment serves as an independent prognostic biomarker after controlling for key clinical risk factors.
+- Objective: I checked how the presence of adaptive immune cells affects how long liver cancer (TCGA-LIHC) patients live. The main goal was to see if CD8 T-cell levels can predict survival on their own after removing the effects of clinical risks like age and cancer stage.
 
-- Methodology: * Streamed absolute expression matrices directly from the GDC API.
+- Methodology:
 
-  - Deployed single-sample Gene Set Enrichment Analysis (ssGSEA) via gseapy to score intra-sample cell populations via relative rank
-  distributions, bypassing transcriptomic background noise.
+  - I pulled raw gene expression data directly from the GDC API.
+    
+  - I used single-sample Gene Set Enrichment Analysis (ssGSEA) with the gseapy library to rank and score immune cells for each patient, which helped cut out background noise from the data.
+    
+  - I used a Multivariable Cox Proportional Hazards Model to analyze the continuous CD8 T-cell scores while controlling for clinical factors like patient age and AJCC tumor stage.
 
-  - Modeled continuous CD8 T-cell scores via a Multivariable Cox Proportional Hazards Model while statistically controlling for clinical confounding elements (Age and AJCC Tumor Staging).
-
-- Key Analytical Result: While univariable Kaplan-Meier stratification yielded non-significant margins (p=0.120) due to stage-specific mortality confounders, the multivariable regression successfully isolated a definitive biological signal. CD8 T-cell enrichment emerged as a significant independent protective factor (p=0.04, Hazard Ratio = 0.61), indicating a 39% reduction in overall mortality risk per unit increase in enrichment.
+- Key Analytical Result: My initial Kaplan-Meier test showed a non-significant result (p=0.120) because the high death rates in late-stage cancer patients were covering up the true pattern. Once I switched to the multivariable model and controlled for cancer stages, the real biological signal came out. CD8 T-cell presence proved to be a significant independent protective factor (p=0.04, Hazard Ratio = 0.61). This means that as CD8 T-cell levels increase, patient mortality risk drops by 39%.
 
 **📊 Project 2: Transcriptomic Differential Expression Pipeline**
 
-- Objective: Map robust expression gradients between healthy control tissue and matched tumor biopsies to isolate malignant driver profiles.
+- Objective: I mapped out the differences in gene expression between healthy control tissues and matching tumor biopsies to find the specific genes driving cancer growth.
 
 - Methodology:
 
-  - Implemented quality control filters and structural normalization matrices across raw sequencing reads.
+  - I handled quality control filtering and normalizations across the raw sequencing data.
     
-  - Designed automated workflows evaluating log2-fold variance thresholds paired with adjusted p-value matrices (q<0.05).
+  -I built automated workflows to pick out highly relevant genes using log2-fold change thresholds alongside adjusted p-values (q<0.05).
 
-- Key Analytical Result: Successfully isolated distinct biomarker targets and generated high-resolution volcano plots alongside bidirectionally clustered heatmaps detailing clear transcriptional segregation.
+- Key Analytical Result: I successfully isolated specific biomarker targets and visualized them clearly using high-resolution volcano plots and clustered heatmaps to show how different tissues separate based on their transcripts.
 
 **🧬 Project 3: High-Throughput Genomic Variant Calling Framework**
 
-- Objective: Build a self-contained pipeline for sequence alignment, quality score recalibration, and single-nucleotide variant (SNV) identification.
+    Objective: I built an end-to-end pipeline to align gene sequences, fix quality scores, and spot single-nucleotide variants (SNVs) in genomic data.
 
-- Methodology:
+    Methodology:
 
-  - Developed structured notebooks utilizing fast alignment scripts (BWA-MEM) mapped directly to reference genome builds.
-    
-  - Integrated multi-tiered filtering engines (Samtools and GATK) to isolate somatic mutations from raw sequencing background errors.
+        I wrote structured code using fast alignment tools like BWA-MEM to map raw reads directly to reference genomes.
 
-- Key Analytical Result: Generated structured variant files detailing clean somatic mutation profiles, variant allele frequencies, and micro-insertion metrics ready for clinical annotation steps.
+        I integrated standard filtering tools like Samtools and GATK to separate true somatic mutations from sequencing errors.
 
----
+    Key Analytical Result: The pipeline produced clean variant files showing mutation profiles, allele frequencies, and micro-insertions that are ready for clinical use.
 
-## 🔬 Key Engineering Principles Applied
+🔬 Key Engineering Principles Applied
 
-1. Confounder Control: Moving beyond basic univariable models to run robust multivariable regressions, ensuring clinical risk factors do not obscure critical biological insights.
+    Controlling for Confounders: I look beyond basic single-variable charts to run multivariable regressions. This makes sure that clinical risks like a patient's age or cancer stage do not hide important biological facts.
 
-2. Rank-Based Normalization: Utilizing intra-sample ranking mechanisms (ssGSEA) over simple arithmetic means to secure reproducible metrics resilient to batch differences.
+    Rank-Based Normalization: I use ranking methods like ssGSEA instead of simple averages. This gives reproducible metrics that do not suffer from batch effects or scale differences.
 
-3. Clean Code & Reproducibility: Structuring data tables, environment files (requirements.txt), and production notebooks side by side to ensure seamless pipeline deployment.
+    Clean Code and Structure: I keep my data tables, environment setup files (requirements.txt), and analysis notebooks organized side by side so anyone can run the pipelines easily.
