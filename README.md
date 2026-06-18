@@ -29,8 +29,9 @@ This repository serves as a centralized hub for production-grade computational b
 │
 └── README.md            # Global Portfolio Directory
 ```
+---
 
-🛠️ Core Tech Stack & Frameworks
+## 🛠️ Core Tech Stack & Frameworks
 
 `Bioinformatics Core: GSEApy, Biopython, GDC API Client`
 
@@ -42,8 +43,10 @@ This repository serves as a centralized hub for production-grade computational b
 
 `Visualization Dashboarding: Matplotlib, Seaborn`
 
-📋 Portfolio Projects Overview
-🧬 Project 1: Immune Microenvironment Analysis in TCGA-LIHC
+---
+
+## 📋 Portfolio Projects Overview
+**🧬 Project 1: Immune Microenvironment Analysis in TCGA-LIHC**
 
 - Objective: Investigate the relationship between adaptive immune cell infiltration and patient survival in Liver Hepatocellular Carcinoma cohorts, determining whether CD8 T-cell enrichment serves as an independent prognostic biomarker after controlling for key clinical risk factors.
 
@@ -56,7 +59,7 @@ This repository serves as a centralized hub for production-grade computational b
 
 - Key Analytical Result: While univariable Kaplan-Meier stratification yielded non-significant margins (p=0.120) due to stage-specific mortality confounders, the multivariable regression successfully isolated a definitive biological signal. CD8 T-cell enrichment emerged as a significant independent protective factor (p=0.04, Hazard Ratio = 0.61), indicating a 39% reduction in overall mortality risk per unit increase in enrichment.
 
-📊 Project 2: Transcriptomic Differential Expression Pipeline
+**📊 Project 2: Transcriptomic Differential Expression Pipeline**
 
 - Objective: Map robust expression gradients between healthy control tissue and matched tumor biopsies to isolate malignant driver profiles.
 
@@ -68,7 +71,7 @@ This repository serves as a centralized hub for production-grade computational b
 
 - Key Analytical Result: Successfully isolated distinct biomarker targets and generated high-resolution volcano plots alongside bidirectionally clustered heatmaps detailing clear transcriptional segregation.
 
-🧬 Project 3: High-Throughput Genomic Variant Calling Framework
+**🧬 Project 3: High-Throughput Genomic Variant Calling Framework**
 
 - Objective: Build a self-contained pipeline for sequence alignment, quality score recalibration, and single-nucleotide variant (SNV) identification.
 
@@ -80,7 +83,9 @@ This repository serves as a centralized hub for production-grade computational b
 
 - Key Analytical Result: Generated structured variant files detailing clean somatic mutation profiles, variant allele frequencies, and micro-insertion metrics ready for clinical annotation steps.
 
-🔬 Key Engineering Principles Applied
+---
+
+## 🔬 Key Engineering Principles Applied
 
 1. Confounder Control: Moving beyond basic univariable models to run robust multivariable regressions, ensuring clinical risk factors do not obscure critical biological insights.
 
