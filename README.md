@@ -1,6 +1,6 @@
 # 🧬 Computational Genomics & Bioinformatics Portfolio
 
-Welcome to my bioinformatics portfolio. This repository contains data-driven genomics pipelines where I work with public cancer genomics and transcriptomic data. I built these projects to extract biological signals from raw data, calculate immune cell presence inside tumors, and predict patient survival outcomes using statistical models.
+Welcome to my bioinformatics portfolio. This repository contains data-driven genomics pipelines built using public cancer transcriptomics datasets. The goal of these projects is to extract biological signals from high-dimensional RNA-seq data, characterize tumor heterogeneity, and evaluate clinically relevant biomarkers using statistical and machine learning approaches.
 
 ---
 
@@ -50,50 +50,64 @@ Welcome to my bioinformatics portfolio. This repository contains data-driven gen
 
 **🧬 Project 1: Erastin & Ferrostatin RNA-seq Analysis in HepG2 Cells**
 
-- Objective: I investigated the transcriptomic changes in HepG2 liver cancer cells when ferroptosis is turned on using Erastin and when it is blocked using Ferrostatin to spot the exact genes and molecular pathways controlling oxidative stress, lipid damage, and iron-dependent cell death.
+🎯 Objective
 
-- Methodology:
+To investigate transcriptional changes in HepG2 liver cancer cells under ferroptosis induction (Erastin) and inhibition (Ferrostatin), identifying key genes and pathways involved in oxidative stress, lipid peroxidation, and iron-dependent cell death.
 
-  - I loaded the expression matrix from GEO and applied a log2​(x+1) transformation to normalize expression values across all samples.
+⚙️ Methodology
+- Loaded GEO RNA-seq expression matrix and applied log2(x + 1) normalization
+- Performed differential expression analysis using Ordinary Least Squares (OLS) regression
+- Controlled for multiple testing using Benjamini–Hochberg FDR correction
+- Conducted pathway enrichment analysis using GSEApy (KEGG, GO, Reactome databases)
+  
+🔬 Key Result
 
-  - I used Ordinary Least Squares (OLS) linear modeling to run two main comparisons: Erastin vs Control and Ferrostatin vs Control, calculating False Discovery Rate (FDR) adjusted p-values using the Benjamini–Hochberg correction.
-
-  - I ran pathway enrichment using gseapy via the Enrichr API against KEGG, GO Biological Process, and Reactome databases.
-
-- Key Analytical Result: Erastin triggered a heavy shift in genes tied to oxidative stress responses, lipid metabolism issues, and direct ferroptosis pathways. The analysis proved that Ferrostatin partially reversed these Erastin-induced shifts, confirming its protective rescue effect at the transcriptomic level.
+Erastin induced strong transcriptional reprogramming associated with oxidative stress response, lipid metabolism disruption, and ferroptosis activation. Ferrostatin partially reversed these effects, confirming a protective transcriptional rescue effect.
 
 **📊 Project 2: Ferroptosis Biomarker Discovery in TCGA-LIHC**
 
-- Objective: I used transcriptomic and clinical data from the TCGA-LIHC project to study how ferroptosis changes at the molecular level in liver cancer and evaluated the prognostic significance of GPX4, a key regulator of ferroptosis resistance.
+🎯 Objective
 
-- Methodology:
+To evaluate ferroptosis-related biomarkers in liver hepatocellular carcinoma (TCGA-LIHC), with a focus on GPX4 expression and its association with patient survival outcomes.
 
-  - I streamed high-throughput RNA-Seq counts and matched clinical metrics directly from the GDC API, applying a log2​(Counts+1) transformation to stabilize variance.
+⚙️ Methodology
+- Retrieved RNA-seq counts and clinical metadata via the GDC API
+- Applied log2(Counts + 1) normalization
+- Compared tumor vs normal expression using statistical testing
+- Performed Kaplan-Meier survival analysis using median stratification
+- Conducted log-rank tests for survival significance
+  
+🔬 Key Result
 
-  - I used a non-parametric Wilcoxon Rank-Sum test to validate GPX4 expression levels between healthy tissue and tumor tissue.
-
-  - I partitioned the cohort using an automated median expression cutoff into High GPX4 and Low GPX4 arms to estimate 5-year overall survival probabilities via Kaplan-Meier curves and Log-rank testing.
-
-- Key Analytical Result: GPX4 expression levels were heavily elevated in primary tumor samples compared to healthy liver tissues (p<0.001). Patients with high GPX4 levels in their tumors had a faster, steeper drop in survival probability over the 5-year tracking window (p<0.05), proving that high GPX4 levels match up with poorer clinical outcomes.
+GPX4 was significantly upregulated in tumor tissues (p < 0.001). High GPX4 expression was associated with poorer overall survival over a 5-year follow-up period (p < 0.05).
 
 **🧬 Project 3: Immune Microenvironment Analysis in TCGA-LIHC**
 
-- Objective: I investigated how the presence of immune cells inside tumors relates to how long liver cancer patients live, focusing on determining whether CD8 T-cell enrichment acts as an independent prognostic biomarker after removing the effects of clinical risks like age and tumor stage.
+🎯 Objective
 
-- Methodology:
+To investigate how tumor immune infiltration relates to patient survival in liver hepatocellular carcinoma, focusing on CD8 T-cell activity as a prognostic immune biomarker.
 
-  - I used single-sample Gene Set Enrichment Analysis (ssGSEA) via gseapy to rank target marker genes within individual patient profiles, minimizing transcriptomic background noise to isolate CD8 T-cell signatures.
+⚙️ Methodology
+- Performed single-sample Gene Set Enrichment Analysis (ssGSEA) using GSEApy to quantify immune cell infiltration scores per patient
+- Built a multivariable Cox Proportional Hazards model using lifelines
+- Adjusted for clinical covariates including age at diagnosis and AJCC tumor stage
+- Evaluated CD8 T-cell infiltration as a continuous variable rather than binary stratification
 
-  - I built a Multivariable Cox Proportional Hazards model using lifelines to evaluate the CD8 T-cell scores as a continuous gradient alongside clinical covariates like age at diagnosis and AJCC tumor stage.
+🔬 Key Result
 
-- Key Analytical Result: While my initial univariable Kaplan-Meier split failed to cross the line for statistical significance (p=0.120), switching to a multivariable model successfully isolated the true biological signal. After adjusting for age and tumor stage, CD8 T-cell infiltration emerged as a highly significant protective factor (p=0.04, Hazard Ratio = 0.61), indicating a 39% reduction in overall mortality risk per unit increase in enrichment.
+While univariable Kaplan-Meier analysis showed no significant association (p = 0.120), multivariable Cox regression revealed that CD8 T-cell infiltration was significantly associated with improved survival outcomes after adjusting for clinical covariates (p = 0.04, HR = 0.61). This corresponds to an estimated 39% reduction in mortality risk per unit increase in CD8 T-cell enrichment.
 
 --- 
 
-# 🔬 Key Engineering Principles Applied
+🔬 Key Analytical Principles Applied
+1. Control of Confounding Variables
 
-1. Controlling for Confounders: I look beyond basic single-variable charts to run robust multivariable regressions. This makes sure that heavy clinical risks like a patient's cancer stage do not hide important biological facts.
+Survival associations were evaluated using multivariable regression models to account for clinical confounders such as tumor stage and age.
 
-2. Rank-Based Normalization: I use ranking methods like ssGSEA instead of simple arithmetic averages. This gives reproducible metrics that do not suffer from background sequencing noise or scale differences.
+2. Rank-Based Immune Scoring (ssGSEA)
 
-3. Clean Code and Structure: I keep my data tables, environment setup files (requirements.txt), and analysis notebooks structured side by side in every directory so anyone can deploy and run the pipelines easily. data tables, environment setup files (requirements.txt), and analysis notebooks organized side by side so anyone can run the pipelines easily.
+Immune infiltration was quantified using ranking-based enrichment scoring, improving robustness to batch effects and expression scaling differences.
+
+3. Reproducible Pipeline Design
+
+Each project includes structured directories for raw data, processed results, figures, and executable notebooks to ensure reproducibility.
