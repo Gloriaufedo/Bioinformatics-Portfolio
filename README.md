@@ -3,31 +3,31 @@
 This repository serves as a centralized hub for production-grade computational biology pipelines leveraging public cancer genomics and transcriptomic data. The workflows focus on extracting high-fidelity biological signals, quantifying cellular microenvironments, and modeling patient survival using advanced statistical frameworks.
 
 ---
-
 ## 📂 Repository Architecture
 
 ```text
-├── Project_1_Immune_Microenvironment/
+├── Erastin_Ferrostatin_RNAseq_Anal.../
+│   ├── Data/
+│   ├── figures/
+│   ├── results/
+│   ├── README.md
+│   ├── analysis.ipynb
+│   └── requirements.txt
+│
+├── Ferroptosis Biomarker Discovery i.../
 │   ├── data/
-│   │   ├── survival_statistics.csv
-│   │   ├── immune_scores_tcga_lihc.csv
-│   │   └── cox_model_summary.csv
-│   ├── images/
-│   │   └── cox_multivariable_forest_plot.png
+│   ├── figures/
+│   ├── results/
+│   ├── README.md
 │   ├── TCGA_LIHC_analysis.ipynb
 │   └── requirements.txt
 │
-├── Project_2_Differential_Expression/
-│   ├── data/            # Log-transformed count matrices & fold-change tables
-│   ├── plots/           # Volcano plots and hierarchical clustering heatmaps
-│   └── DESeq2_pipeline.ipynb
-│
-├── Project_3_Genomic_Variant_Calling/
-│   ├── config/          # Reference genomes and alignment parameters
-│   ├── pipeline/        # BWA-MEM, Samtools, and GATK variant scripts
-│   └── variant_calling_workflow.ipynb
-│
-└── README.md            # Global Portfolio Directory
+└── Immune Microenvironment Analys.../
+    ├── figures/
+    ├── results/
+    ├── Immune_Microenvironment_TCG...
+    ├── README.md
+    └── requirements.txt
 ```
 ---
 
