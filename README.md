@@ -64,7 +64,7 @@ To investigate transcriptional changes in HepG2 liver cancer cells under ferropt
 
 Erastin induced strong transcriptional reprogramming associated with oxidative stress response, lipid metabolism disruption, and ferroptosis activation. Ferrostatin partially reversed these effects, confirming a protective transcriptional rescue effect.
 
-**📊 Project 2: Ferroptosis Biomarker Discovery in TCGA-LIHC**
+**🧬 Project 2: Ferroptosis Biomarker Discovery in TCGA-LIHC**
 
 🎯 Objective
 
@@ -99,7 +99,7 @@ While univariable Kaplan-Meier analysis showed no significant association (p = 0
 
 --- 
 
-🔬 Key Analytical Principles Applied
+## 🔬 Key Analytical Principles Applied
 1. Control of Confounding Variables
 
 Survival associations were evaluated using multivariable regression models to account for clinical confounders such as tumor stage and age.
