@@ -24,11 +24,17 @@ The study integrates:
 
 ## Key Analyses
 ✔ RNA-seq Data Processing
+
 ✔ Single-Sample Gene Set Enrichment Analysis (ssGSEA)
+
 ✔ Immune Signature Quantification
+
 ✔ Principal Component Analysis (PCA)
+
 ✔ Cox Proportional Hazards Modeling
+
 ✔ Kaplan-Meier Survival Analysis
+
 ✔ Clinical Covariate Adjustment
 
 ## Methods
@@ -79,9 +85,13 @@ This demonstrates that high mortality rates in late-stage tumors create signific
 
 ## Key Findings
 **Independent Prognosis:** CD8 T-cell infiltration is a statistically significant, independent protective factor in TCGA-LIHC ($p = 0.04$).
+
 **Risk Mitigation:** Higher continuous immune infiltration is associated with a 39% reduction in patient mortality risk.
+
 **Methodological Rigor:** Multivariable modeling successfully uncovered biological signatures obscured in unadjusted survival comparisons.
+
 **Clinical Staging:** Tumor stage remains a dominant determinant of clinical outcome, with Stage IV increasing mortality hazard over 5-fold.
+
 **Enrichment Utility:** ssGSEA provides a robust, noise-resilient framework for capturing high-fidelity immune contexture profiles from bulk RNA-seq data.
 
 ## Conclusions
