@@ -67,7 +67,7 @@ This repository serves as a centralized hub for production-grade computational b
 
   - Implemented quality control filters and structural normalization matrices across raw sequencing reads.
     
-  -Designed automated workflows evaluating log2-fold variance thresholds paired with adjusted p-value matrices (q<0.05).
+  - Designed automated workflows evaluating log2-fold variance thresholds paired with adjusted p-value matrices (q<0.05).
 
 - Key Analytical Result: Successfully isolated distinct biomarker targets and generated high-resolution volcano plots alongside bidirectionally clustered heatmaps detailing clear transcriptional segregation.
 
