@@ -84,15 +84,15 @@ Advanced disease burden exerted an expectedly heavy impact on patient mortality:
 This demonstrates that high mortality rates in late-stage tumors create significant clinical confounding that masks the protective immune signal when analyzed through an unadjusted, univariable model.
 
 ## Key Findings
-**Independent Prognosis:** CD8 T-cell infiltration is a statistically significant, independent protective factor in TCGA-LIHC ($p = 0.04$).
+1. D8 T-cell infiltration is a statistically significant, independent protective factor in TCGA-LIHC ($p = 0.04$).
 
-**Risk Mitigation:** Higher continuous immune infiltration is associated with a 39% reduction in patient mortality risk.
+2. Higher continuous immune infiltration is associated with a 39% reduction in patient mortality risk.
 
-**Methodological Rigor:** Multivariable modeling successfully uncovered biological signatures obscured in unadjusted survival comparisons.
+3. Multivariable modeling successfully uncovered biological signatures obscured in unadjusted survival comparisons.
 
-**Clinical Staging:** Tumor stage remains a dominant determinant of clinical outcome, with Stage IV increasing mortality hazard over 5-fold.
-
-**Enrichment Utility:** ssGSEA provides a robust, noise-resilient framework for capturing high-fidelity immune contexture profiles from bulk RNA-seq data.
+4. Tumor stage remains a dominant determinant of clinical outcome, with Stage IV increasing mortality hazard over 5-fold.
+  
+5.  ssGSEA provides a robust, noise-resilient framework for capturing high-fidelity immune contexture profiles from bulk RNA-seq data.
 
 ## Conclusions
 This study demonstrates the value of integrating transcriptomic data with clinical metadata to chart tumor-immune interactions in hepatocellular carcinoma. By shifting from simple arithmetic gene averaging to an industry-standard ssGSEA framework and controlling for clinical confounders with a multivariable Cox regression model, this analysis successfully confirms CD8 T-cell infiltration as a protective prognostic factor independent of traditional clinical variables. These findings highlight the importance of modeling clinical covariates in computational oncology and illustrate how advanced survival analytics can uncover actionable biomarkers within massive public cancer genomics datasets.
