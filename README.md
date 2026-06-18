@@ -106,21 +106,22 @@ To investigate how tumor immune infiltration relates to patient survival in live
 While univariable Kaplan-Meier analysis showed no significant association (p = 0.120), multivariable Cox regression revealed that CD8 T-cell infiltration was significantly associated with improved survival outcomes after adjusting for clinical covariates (p = 0.04, HR = 0.61). This corresponds to an estimated 39% reduction in mortality risk per unit increase in CD8 T-cell enrichment.
 
 --- 
-**🧬 Project 4: Single-Cell RNA-seq Analysis of Human PBMCs**
+
+***🧬 Project 4: Single-Cell RNA-seq Analysis of Human PBMCs**
 
 🎯 Objective
-To analyze single-cell transcriptomics data from human peripheral blood mononuclear cells (PBMCs) and map the immune cell landscape through unsupervised clustering, differential expression profiling, and canonical marker gene annotation[cite: 1, 25, 202].
+To analyze single-cell transcriptomics data from human peripheral blood mononuclear cells (PBMCs) and map the immune cell landscape through unsupervised clustering, differential expression profiling, and canonical marker gene annotation.
 
 ⚙️ Methodology
-- [cite_start]Processed a 10x Genomics scRNA-seq count matrix into an AnnData structure containing 2,700 cells and 32,738 genes[cite: 2, 12, 25].
-- [cite_start]Filtered low-quality cells and doublets by enforcing a strict threshold of < 2,500 genes and < 5% mitochondrial read counts per cell[cite: 33, 46, 48].
-- [cite_start]Applied target-sum normalization ($10^4$ reads per cell) and log-transformation ($ln(\text{counts} + 1)$) to stabilize count variance[cite: 68].
-- [cite_start]Extracted the top 2,000 highly variable genes (HVGs) and applied z-score scaling with extreme value clipping[cite: 81, 82, 83].
-- [cite_start]Performed Principal Component Analysis (PCA) and constructed a nearest-neighbor graph utilizing the top 40 principal components[cite: 96, 136].
-- [cite_start]Implemented the Leiden community detection algorithm to capture transcriptionally distinct cellular populations[cite: 137].
-- [cite_start]Generated a two-dimensional UMAP embedding for low-dimensional layout visualization of the clusters[cite: 136, 141].
-- [cite_start]Annotated clusters to specific immunological lineages using established canonical markers: `CD3D`/`CD8A` (T Cells), `NKG7` (NK Cells), `MS4A1` (B Cells), and `LYZ` (Monocytes)[cite: 149, 150, 151, 152, 153, 154, 202].
-- [cite_start]Executed Wilcoxon rank-sum testing to identify and rank the top differentially expressed marker genes driving cluster separation[cite: 219, 230, 233].
+- Processed a 10x Genomics scRNA-seq count matrix into an AnnData structure containing 2,700 cells and 32,738 genes.
+- Filtered low-quality cells and doublets by enforcing a strict threshold of < 2,500 genes and < 5% mitochondrial read counts per cell.
+- Applied target-sum normalization (10^4 reads per cell) and log-transformation (ln(counts + 1)) to stabilize count variance.
+- Extracted the top 2,000 highly variable genes (HVGs) and applied z-score scaling with extreme value clipping.
+- Performed Principal Component Analysis (PCA) and constructed a nearest-neighbor graph utilizing the top 40 principal components.
+- Implemented the Leiden community detection algorithm to capture transcriptionally distinct cellular populations.
+- Generated a two-dimensional UMAP embedding for low-dimensional layout visualization of the clusters.
+- Annotated clusters to specific immunological lineages using established canonical markers: CD3D/CD8A (T Cells), NKG7 (NK Cells), MS4A1 (B Cells), and LYZ (Monocytes).
+- Executed Wilcoxon rank-sum testing to identify and rank the top differentially expressed marker genes driving cluster separation.
 
 🔬 Key Result
 The unsupervised pipeline successfully resolved distinct lymphoid and myeloid subpopulations from the mixed PBMC profile. Localized canonical marker expression directly validated the unsupervised cluster boundaries, while differential expression testing pinpointed highly specific, cluster-defining transcriptional signatures corresponding to standard human immune reference atlases.
