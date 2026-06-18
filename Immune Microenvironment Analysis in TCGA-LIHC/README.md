@@ -13,21 +13,23 @@ The study integrates:
 * Survival outcomes
 
 ## Tools
-* **Language:** Python
-* **Data Manipulation:** Pandas, NumPy
-* **Bioinformatics:** GSEApy
-* **Survival Analysis:** Lifelines
-* **Machine Learning:** Scikit-learn
-* **Visualization:** Matplotlib, Seaborn
+`Python`
+`Pandas`
+`NumPy`
+`GSEApy`
+`Lifelines`
+`Scikit-learn`
+`Matplotlib`
+`Seaborn`
 
 ## Key Analyses
-* ✔ RNA-seq Data Processing
-* ✔ Single-Sample Gene Set Enrichment Analysis (ssGSEA)
-* ✔ Immune Signature Quantification
-* ✔ Principal Component Analysis (PCA)
-* ✔ Cox Proportional Hazards Modeling
-* ✔ Kaplan-Meier Survival Analysis
-* ✔ Clinical Covariate Adjustment
+✔ RNA-seq Data Processing
+✔ Single-Sample Gene Set Enrichment Analysis (ssGSEA)
+✔ Immune Signature Quantification
+✔ Principal Component Analysis (PCA)
+✔ Cox Proportional Hazards Modeling
+✔ Kaplan-Meier Survival Analysis
+✔ Clinical Covariate Adjustment
 
 ## Methods
 
@@ -55,32 +57,32 @@ The study integrates:
 
 ## Results
 
-### Immune Infiltration Profiling
+### 1. Immune Infiltration Profiling
 ssGSEA successfully quantified immune activity across individual tumor samples, generating normalized, patient-level CD8 T-cell enrichment scores for downstream prognostic analyses.
 
-### Survival Analysis
+### 2. Survival Analysis
 Initial univariable Kaplan-Meier stratification showed a visible visual trend toward improved survival in patients with higher CD8 T-cell infiltration, but failed to reach statistical significance.
 * **Log-rank test:** $p = 0.120$
 
-### Multivariable Cox Regression
+### 3. Multivariable Cox Regression
 Once clinical baseline risk variations were explicitly modeled, the true biological signal was isolated. After adjusting for age and tumor stage, CD8 T-cell infiltration emerged as a statistically significant, independent predictor of survival:
 * **Hazard Ratio (HR):** $0.61$
 * **p-value:** $0.04$
 
 This indicates that an increased baseline enrichment of CD8 T-cells correlates with a **39% reduction in mortality risk** ($1 - 0.61 = 0.39$).
 
-### Clinical Covariates
+### 4. Clinical Covariates
 Advanced disease burden exerted an expectedly heavy impact on patient mortality:
 * **Stage IV Hazard Ratio:** $5.74$
 
 This demonstrates that high mortality rates in late-stage tumors create significant clinical confounding that masks the protective immune signal when analyzed through an unadjusted, univariable model.
 
 ## Key Findings
-* 📊 **Independent Prognosis:** CD8 T-cell infiltration is a statistically significant, independent protective factor in TCGA-LIHC ($p = 0.04$).
-* 📉 **Risk Mitigation:** Higher continuous immune infiltration is associated with a 39% reduction in patient mortality risk.
-* 🛠️ **Methodological Rigor:** Multivariable modeling successfully uncovered biological signatures obscured in unadjusted survival comparisons.
-* 🎗️ **Clinical Staging:** Tumor stage remains a dominant determinant of clinical outcome, with Stage IV increasing mortality hazard over 5-fold.
-* 🧬 **Enrichment Utility:** ssGSEA provides a robust, noise-resilient framework for capturing high-fidelity immune contexture profiles from bulk RNA-seq data.
+**Independent Prognosis:** CD8 T-cell infiltration is a statistically significant, independent protective factor in TCGA-LIHC ($p = 0.04$).
+**Risk Mitigation:** Higher continuous immune infiltration is associated with a 39% reduction in patient mortality risk.
+**Methodological Rigor:** Multivariable modeling successfully uncovered biological signatures obscured in unadjusted survival comparisons.
+**Clinical Staging:** Tumor stage remains a dominant determinant of clinical outcome, with Stage IV increasing mortality hazard over 5-fold.
+**Enrichment Utility:** ssGSEA provides a robust, noise-resilient framework for capturing high-fidelity immune contexture profiles from bulk RNA-seq data.
 
 ## Conclusions
 This study demonstrates the value of integrating transcriptomic data with clinical metadata to chart tumor-immune interactions in hepatocellular carcinoma. By shifting from simple arithmetic gene averaging to an industry-standard ssGSEA framework and controlling for clinical confounders with a multivariable Cox regression model, this analysis successfully confirms CD8 T-cell infiltration as a protective prognostic factor independent of traditional clinical variables. These findings highlight the importance of modeling clinical covariates in computational oncology and illustrate how advanced survival analytics can uncover actionable biomarkers within massive public cancer genomics datasets.
