@@ -74,7 +74,7 @@ adata = sc.datasets.pbmc3k()
 adata.var["mt"] = adata.var_names.str.startswith("MT-")
 sc.pp.calculate_qc_metrics(adata, qc_vars=["mt"], inplace=True)
 ```
-# Filter, scale, and log-transform
+### Filter, scale, and log-transform
 ```
 adata = adata[adata.obs.n_genes_by_counts < 2500, :]
 adata = adata[adata.obs.pct_counts_mt < 5, :]
@@ -83,14 +83,14 @@ sc.pp.log1p(adata)
 adata.raw = adata.copy()
 ```
 
-# Highly Variable Genes selection and Scaling
+### Highly Variable Genes selection and Scaling
 ```
 sc.pp.highly_variable_genes(adata, n_top_genes=2000)
 adata = adata[:, adata.var.highly_variable]
 sc.pp.scale(adata, max_value=10)
 ```
 
-# PCA, Neighbors, and UMAP
+### PCA, Neighbors, and UMAP
 ```
 sc.tl.pca(adata, svd_solver="arpack")
 sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
@@ -98,7 +98,7 @@ sc.tl.umap(adata)
 sc.tl.leiden(adata, resolution=0.5, flavor='igraph')
 ```
 
-# Mapping clusters to immune types
+### Mapping clusters to immune types
 ```
 celltype_map = {
     "0": "T Cells",
@@ -109,7 +109,7 @@ celltype_map = {
 adata.obs["cell_type"] = adata.obs["leiden"].map(celltype_map)
 ```
 
-# Export processed object
+### Export processed object
 ```
 adata.write("pbmc_scRNA_processed.h5ad")
 ```
