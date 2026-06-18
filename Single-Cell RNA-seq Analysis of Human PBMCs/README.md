@@ -1,6 +1,7 @@
 # 🧬 Single-Cell RNA-seq Analysis of Human PBMCs
 
-[umap_celltype](/figures/Single-Cell RNA-seq Analysis of Human PBMCs/figures/umap_celltypes.png)
+![umap_celltype](figures/umap_celltypes.png)
+
 This repository contains an end-to-end Python pipeline using **Scanpy** to preprocess, cluster, and annotate a single-cell RNA sequencing (scRNA-seq) dataset of Human Peripheral Blood Mononuclear Cells (PBMCs).
 
 ---
