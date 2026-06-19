@@ -56,7 +56,7 @@ Visualization Dashboarding: `Matplotlib, Seaborn`
 
 ## 📋 Portfolio Projects Overview
 
-**🧬 Project 1: Erastin & Ferrostatin RNA-seq Analysis in HepG2 Cells**
+### 🧬 Project 1: Erastin & Ferrostatin RNA-seq Analysis in HepG2 Cells
 
 🎯 Objective
 
@@ -68,11 +68,11 @@ To investigate transcriptional changes in HepG2 liver cancer cells under ferropt
 - Controlled for multiple testing using Benjamini–Hochberg FDR correction
 - Conducted pathway enrichment analysis using GSEApy (KEGG, GO, Reactome databases)
   
-🔬 Key Result
+**Key Result**
 
 Erastin induced strong transcriptional reprogramming associated with oxidative stress response, lipid metabolism disruption, and ferroptosis activation. Ferrostatin partially reversed these effects, confirming a protective transcriptional rescue effect.
 
-**🧬 Project 2: Ferroptosis Biomarker Discovery in TCGA-LIHC**
+### 🧬 Project 2: Ferroptosis Biomarker Discovery in TCGA-LIHC
 
 🎯 Objective
 
@@ -85,11 +85,11 @@ To evaluate ferroptosis-related biomarkers in liver hepatocellular carcinoma (TC
 - Performed Kaplan-Meier survival analysis using median stratification
 - Conducted log-rank tests for survival significance
   
-🔬 Key Result
+**Key Result**
 
 GPX4 was significantly upregulated in tumor tissues (p < 0.001). High GPX4 expression was associated with poorer overall survival over a 5-year follow-up period (p < 0.05).
 
-**🧬 Project 3: Immune Microenvironment Analysis in TCGA-LIHC**
+### 🧬 Project 3: Immune Microenvironment Analysis in TCGA-LIHC
 
 🎯 Objective
 
@@ -101,13 +101,13 @@ To investigate how tumor immune infiltration relates to patient survival in live
 - Adjusted for clinical covariates including age at diagnosis and AJCC tumor stage
 - Evaluated CD8 T-cell infiltration as a continuous variable rather than binary stratification
 
-🔬 Key Result
+**Key Result**
 
 While univariable Kaplan-Meier analysis showed no significant association (p = 0.120), multivariable Cox regression revealed that CD8 T-cell infiltration was significantly associated with improved survival outcomes after adjusting for clinical covariates (p = 0.04, HR = 0.61). This corresponds to an estimated 39% reduction in mortality risk per unit increase in CD8 T-cell enrichment.
 
 --- 
 
-**🧬 Project 4: Single-Cell RNA-seq Analysis of Human PBMCs**
+### 🧬 Project 4: Single-Cell RNA-seq Analysis of Human PBMCs
 
 🎯 Objective
 To analyze single-cell transcriptomics data from human peripheral blood mononuclear cells (PBMCs) and map the immune cell landscape through unsupervised clustering, differential expression profiling, and canonical marker gene annotation.
@@ -123,10 +123,12 @@ To analyze single-cell transcriptomics data from human peripheral blood mononucl
 - Annotated clusters to specific immunological lineages using established canonical markers: CD3D/CD8A (T Cells), NKG7 (NK Cells), MS4A1 (B Cells), and LYZ (Monocytes).
 - Executed Wilcoxon rank-sum testing to identify and rank the top differentially expressed marker genes driving cluster separation.
 
-🔬 Key Result
+**Key Result**
+
 The unsupervised pipeline successfully resolved distinct lymphoid and myeloid subpopulations from the mixed PBMC profile. Localized canonical marker expression directly validated the unsupervised cluster boundaries, while differential expression testing pinpointed highly specific, cluster-defining transcriptional signatures corresponding to standard human immune reference atlases.
 
 ## 🔬 Key Analytical Principles Applied
+
 1. Control of Confounding Variables
 
 Survival associations were evaluated using multivariable regression models to account for clinical confounders such as tumor stage and age.
