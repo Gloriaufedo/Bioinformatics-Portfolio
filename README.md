@@ -42,15 +42,15 @@ Welcome to my bioinformatics portfolio. This repository contains data-driven gen
 
 🛠️ Core Tech Stack & Frameworks
 
-`Bioinformatics Core: GSEApy, Biopython, GDC API Client`
+Bioinformatics Core: `GSEApy, Biopython, GDC API Client`
 
-`Survival Analytics: Lifelines (Cox Proportional Hazards, Kaplan-Meier models)`
+Survival Analytics: `Lifelines (Cox Proportional Hazards, Kaplan-Meier models)`
 
-`Statistical Modeling & ML: Scikit-learn, SciPy, Statsmodels`
+Statistical Modeling & ML: `Scikit-learn, SciPy, Statsmodels`
 
-`Data Processing: Pandas, NumPy`
+Data Processing: `Pandas, NumPy`
 
-`Visualization Dashboarding: Matplotlib, Seaborn`
+Visualization Dashboarding: `Matplotlib, Seaborn`
 
 ---
 
