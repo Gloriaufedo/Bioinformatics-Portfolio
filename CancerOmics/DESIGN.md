@@ -2,190 +2,119 @@
 
 ## Project Overview
 
-CancerOmics is a modular computational biology pipeline developed to identify transcriptomic biomarkers associated with ferroptosis and cancer progression using publicly available RNA sequencing datasets.
+CancerOmics is a reproducible bioinformatics portfolio that demonstrates the complete workflow for analysing public cancer genomics and transcriptomics datasets. The repository is designed around reproducible research principles, where each analysis is self-contained while following a common project structure and coding standard.
 
-The project integrates differential expression analysis, functional enrichment, immune infiltration analysis, survival modelling, and machine learning into a reproducible workflow. It is designed to demonstrate practical bioinformatics software development while following reproducible research principles.
-
----
-
-# Objectives
-
-The project aims to:
-
-- Build an end-to-end transcriptomics analysis workflow.
-- Apply modern bioinformatics methods to cancer datasets.
-- Produce reproducible analyses that can be extended to additional cancer types.
-- Demonstrate software engineering practices within computational biology.
+The project combines computational biology, statistical analysis, machine learning, and data visualisation to investigate molecular mechanisms of cancer using publicly available datasets.
 
 ---
 
-# Design Principles
+# Design Goals
 
-The project was designed around five principles:
+The repository was designed to:
 
-1. Reproducibility
-2. Modular analysis
-3. Readability
-4. Scalability
-5. Version control
-
-Each analysis stage is isolated so that individual modules can be updated without affecting the rest of the pipeline.
+- Produce fully reproducible analyses
+- Follow good software engineering practices
+- Separate raw data, processed data, source code and results
+- Allow each project to be executed independently
+- Provide clear documentation for future users and collaborators
 
 ---
 
-# Workflow Architecture
-
-```
-Raw GEO / TCGA Data
-        │
-        ▼
-Data Download
-        │
-        ▼
-Quality Control
-        │
-        ▼
-Normalization
-        │
-        ▼
-Differential Expression
-        │
-        ▼
-Functional Enrichment
-        │
-        ▼
-Immune Cell Estimation
-        │
-        ▼
-Survival Analysis
-        │
-        ▼
-Machine Learning
-        │
-        ▼
-Visualisation
-```
-
----
-
-# Directory Structure
+# Repository Structure
 
 ```
 CancerOmics/
 
-data/
-    raw/
-    processed/
-
-src/
-    preprocessing/
-    differential_expression/
-    enrichment/
-    immune_analysis/
-    survival/
-    machine_learning/
-    visualization/
-
-results/
-
-figures/
-
-notebooks/
-
-tests/
-
-docs/
-
+│
+├── README.md
+├── DESIGN.md
+├── ROADMAP.md
+├── CONTRIBUTING.md
+├── requirements.txt
+├── pyproject.toml
+│
+├── Erastin_Ferrostatin_RNAseq_Analysis/
+├── Ferroptosis_Biomarker_Discovery/
+├── Immune_Microenvironment_Analysis/
+└── Single_Cell_RNAseq_Analysis/
 ```
 
-Each module performs one clearly defined task.
+Each project directory contains:
+
+- source code
+- notebooks (where applicable)
+- processed datasets
+- figures
+- outputs
+- project-specific documentation
 
 ---
 
-# Technologies
+# Analysis Workflow
 
-| Tool | Purpose |
-|-------|----------|
-| Python | Main programming language |
-| VS Code | Development environment |
-| Pandas | Data manipulation |
-| NumPy | Numerical computation |
-| Scanpy | Single-cell analysis |
-| Lifelines | Survival analysis |
-| Scikit-learn | Machine learning |
-| Matplotlib | Figures |
-| Seaborn | Statistical visualization |
-| Git | Version control |
-| GitHub | Repository hosting |
+Each project follows the same workflow:
 
----
+1. Data acquisition
+2. Data preprocessing
+3. Quality control
+4. Statistical analysis
+5. Biological interpretation
+6. Visualisation
+7. Reproducible reporting
 
-# Software Design
-
-The pipeline follows a modular architecture.
-
-Each module receives standardized inputs and produces standardized outputs.
-
-Example:
-
-Input
-
-```
-expression_matrix.csv
-metadata.csv
-```
-
-↓
-
-Differential Expression Module
-
-↓
-
-Output
-
-```
-deg_results.csv
-volcano_plot.png
-```
-
-This allows downstream analyses to be reused independently.
+Using the same workflow across projects improves consistency and reproducibility.
 
 ---
 
 # Reproducibility
 
-The project includes:
+All analyses are intended to be reproducible from publicly available datasets.
 
+The software environment is managed through:
+
+- Python
 - requirements.txt
 - pyproject.toml
-- Git version control
-- Documented workflow
-- Fixed random seeds where applicable
 
-This ensures analyses can be reproduced on another computer.
+Dependencies are explicitly documented to ensure consistent execution across operating systems.
 
 ---
 
-# Future Extensions
+# Coding Principles
 
-Planned improvements include:
+The project follows several software engineering principles:
 
-- Snakemake workflow automation
-- Docker container support
-- Nextflow implementation
-- Interactive Streamlit dashboard
+- Modular scripts
+- Descriptive variable names
+- Version-controlled development
+- Reproducible computational workflows
+- Clear documentation
+- Minimal code duplication
+
+---
+
+# Future Expansion
+
+CancerOmics is designed as a growing portfolio.
+
+Future analyses will follow the same repository structure, allowing new projects to be added without restructuring the repository.
+
+Potential future projects include:
+
 - Multi-omics integration
-- Additional TCGA cancer types
+- Spatial transcriptomics
+- ATAC-seq analysis
+- Proteogenomics
+- Cancer drug response modelling
 
 ---
 
-# Expected Outcome
+# Intended Audience
 
-The final project will provide:
+This repository is intended for:
 
-- reproducible biomarker discovery pipeline
-- publication-quality visualisations
-- interpretable machine learning models
-- clinically relevant candidate biomarkers
-- reusable bioinformatics codebase
-
+- Graduate admissions committees
+- Research supervisors
+- Bioinformatics researchers
+- Computational biology collaborators
+- Employers evaluating bioinformatics and data science skills
