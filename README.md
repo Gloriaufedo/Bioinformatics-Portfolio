@@ -1,6 +1,7 @@
 # 🧬 Computational Genomics & Bioinformatics Portfolio
 
 Welcome to my bioinformatics portfolio. This repository contains data-driven genomics pipelines built primarily on public cancer transcriptomics datasets, which offer the largest, best-annotated public resources for developing and testing these methods. The underlying goal is broader than cancer specifically: extracting biological signals from high-dimensional RNA-seq data, quantifying cellular and molecular heterogeneity, and evaluating clinically relevant biomarkers and survival associations using statistical and machine learning approaches. These methods apply wherever molecular variation helps explain differences in disease presentation or patient outcomes, including in cardiovascular and renal disease, an area closely related to this work.
+
 ---
 
 ## 📂 Repository Architecture
