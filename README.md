@@ -1,7 +1,6 @@
 # 🧬 Computational Genomics & Bioinformatics Portfolio
 
-Welcome to my bioinformatics portfolio. This repository contains data-driven genomics pipelines built using public cancer transcriptomics datasets. The goal of these projects is to extract biological signals from high-dimensional RNA-seq data, characterize tumor heterogeneity, and evaluate clinically relevant biomarkers using statistical and machine learning approaches.
-
+Welcome to my bioinformatics portfolio. This repository contains data-driven genomics pipelines built primarily on public cancer transcriptomics datasets, which offer the largest, best-annotated public resources for developing and testing these methods. The underlying goal is broader than cancer specifically: extracting biological signals from high-dimensional RNA-seq data, quantifying cellular and molecular heterogeneity, and evaluating clinically relevant biomarkers and survival associations using statistical and machine learning approaches. These methods apply wherever molecular variation helps explain differences in disease presentation or patient outcomes, including in cardiovascular and renal disease, an area closely related to this work.
 ---
 
 ## 📂 Repository Architecture
@@ -61,6 +60,7 @@ Visualization Dashboarding: `Matplotlib, Seaborn`
 🎯 Objective
 
 To investigate transcriptional changes in HepG2 liver cancer cells under ferroptosis induction (Erastin) and inhibition (Ferrostatin), identifying key genes and pathways involved in oxidative stress, lipid peroxidation, and iron-dependent cell death.
+Ferroptosis is increasingly implicated beyond cancer biology, including in cardiac ischemia-reperfusion injury and acute kidney injury, making the transcriptional signatures characterized here relevant to cardiovascular and renal disease contexts as well
 
 ⚙️ Methodology
 - Loaded GEO RNA-seq expression matrix and applied log2(x + 1) normalization
@@ -76,7 +76,7 @@ Erastin induced strong transcriptional reprogramming associated with oxidative s
 
 🎯 Objective
 
-To evaluate ferroptosis-related biomarkers in liver hepatocellular carcinoma (TCGA-LIHC), with a focus on GPX4 expression and its association with patient survival outcomes.
+To evaluate ferroptosis-related biomarkers in liver hepatocellular carcinoma (TCGA-LIHC), with a focus on GPX4 expression and its association with patient survival outcomes. GPX4 is the central regulator of the ferroptosis pathway, so the survival-modelling approach developed here (tumor vs normal comparison, Kaplan-Meier stratification, log-rank testing) is directly transferable to evaluating GPX4 or related oxidative-stress markers in cardiovascular and renal disease cohorts.
 
 ⚙️ Methodology
 - Retrieved RNA-seq counts and clinical metadata via the GDC API
