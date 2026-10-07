@@ -22,7 +22,7 @@ Hochberg FDR correction, GSEApy pathway enrichment.
 downregulated genes. [TOP PATHWAY] showed the strongest enrichment
 ([STATISTIC/P-VALUE]).
 
-[View project](link)
+[View project]([https://github.com/Gloriaufedo/Bioinformatics-Portfolio/tree/d5d2958b0836f54cd0e5308009f5a2ed770e40c8/Erastin_Ferrostatin_RNAseq_Analysis])
 
 ---
 
