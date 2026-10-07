@@ -2,112 +2,226 @@
 
 ![PCA](figures/pca_plot.png)
 
-# Objective
+## Objective
 
-To investigate transcriptional changes in HepG2 liver cancer cells under ferroptosis induction (Erastin) and inhibition (Ferrostatin), identifying key genes and pathways involved in oxidative stress, lipid peroxidation, and iron-dependent cell death.
+To investigate transcriptional changes in HepG2 liver cancer cells following ferroptosis induction with Erastin and treatment with the ferroptosis inhibitor Ferrostatin, with a focus on oxidative stress, lipid metabolism, and ferroptosis-related biological processes.
 
-# Dataset
+## Dataset
 
-Gene expression dataset (GSE104462) obtained from GEO database, consisting of:
+**GEO accession:** GSE104462
 
-- Control samples (C1–C3)
-- Erastin-treated samples (E1–E3)
-- Ferrostatin-treated samples (F1–F3)
+The analysis included three experimental groups:
 
-# Tools:
-`Python`
-`Pandas`
-`Statsmodels`
-`Scikit-learn`
-`GSEApy`
-`Matplotlib`
+* **Control:** C1–C3
+* **Erastin:** E1–E3
+* **Ferrostatin:** F1–F3
 
-# Key Analyses:
-✔ Differential Expression
-✔ PCA
-✔ Volcano Plots
-✔ Heatmap
-✔ GSEA
+The expression matrix was obtained from the Gene Expression Omnibus (GEO) and analyzed in Python.
 
-# Methods
+## Analytical Workflow
 
-1. **Data Pre-processing**
-- Loaded expression matrix from GEO
-- Set gene IDs as index
-- Applied log2(x + 1) transformation to normalize expression values
-- Constructed metadata table for sample grouping
+**Expression matrix → preprocessing → PCA → differential expression → pathway enrichment → pre-ranked GSEA → biological interpretation**
 
-2. **Differential Expression Analysis**
-Linear modeling using Ordinary Least Squares (OLS)
-- Comparison:
-  
-i. Erastin vs Control
+## Tools
 
-ii. Ferrostatin vs Control
+* Python
+* Pandas
+* NumPy
+* Statsmodels
+* Scikit-learn
+* GSEApy
+* Matplotlib
+* Seaborn
 
-- Computed:
+---
 
-i. log2 fold change
+# Analysis
 
-ii. p-values
+## 1. Data Pre-processing
 
-iii. FDR-adjusted p-values (Benjamini–Hochberg correction)
+The expression matrix was loaded and gene identifiers were set as the index.
 
-3. **PCA (Principal Component Analysis**
-- Reduced dimensionality of transcriptomic profiles
-- Visualized sample clustering across treatment groups
-- Assessed global transcriptional separation
+Expression values were transformed using:
 
-4. **Volcano Plots**
-- Visualized significance vs effect size
-- Highlighted differentially expressed genes using thresholds:
-|log2FC| > 1
-padj < 0.05
+```text
+log2(x + 1)
+```
 
-5. **Heatmap**
-- Top differentially expressed genes visualized across samples
-- Used hierarchical clustering to identify expression patterns across:
-  
-i. Control
+A sample metadata table was constructed to assign each sample to its experimental group.
 
-ii. Erastin
+The transformed expression matrix was then used for downstream exploratory and differential expression analyses.
 
-iii. Ferrostatin
+---
 
-6. **GSEA (Gene Set Enrichment Analysis)**
-- Performed enrichment using gseapy (Enrichr API)
-- Gene sets used:
-  
-i. KEGG 2021 Human
+## 2. Principal Component Analysis
 
-ii. GO Biological Process 2023
+PCA was performed on the transformed expression matrix to examine global transcriptional differences between treatment groups.
 
-iii. Reactome 2022
+The first two principal components were used to visualize sample-level clustering and assess whether treatment groups showed separation in their overall transcriptional profiles.
 
-# Results
+**Result:** [Describe the actual separation observed in PC1/PC2 and include variance explained once verified.]
 
-1. Erastin induced strong transcriptional reprogramming associated with:
-- Oxidative stress response
-- Lipid metabolism disruption
-- Ferroptosis activation pathways
-- Ferrostatin partially reversed Erastin-induced expression changes, confirming rescue effect.
-  
-2. Key enriched pathways:
-- Glutathione metabolism
-- Reactive oxygen species detoxification
-- Iron-dependent lipid peroxidation
+![PCA](figures/pca_plot.png)
 
-## Key Results
+---
 
-- Identified X significantly differentially expressed genes after Erastin treatment.
-- Ferrostatin partially reversed ferroptosis-associated transcriptional signatures.
-- PCA demonstrated clear separation between treatment groups.
-- GSEA highlighted pathways related to oxidative stress and mitochondrial function.
+## 3. Differential Expression Analysis
 
-# Conclusions
+Differential expression was assessed independently for:
 
-This study demonstrates clear transcriptomic signatures of ferroptosis in HepG2 cells. The combination of differential expression, PCA, and pathway enrichment provides strong evidence of:
+* **Erastin vs Control**
+* **Ferrostatin vs Control**
 
-- Erastin-driven ferroptotic activation
-- Ferrostatin-mediated protective reversal
-- Key regulatory genes involved in oxidative stress and lipid peroxidation
+For each gene, an Ordinary Least Squares (OLS) model was fitted using Control as the reference group.
+
+The analysis produced:
+
+* log2 expression effect estimates
+* p-values
+* Benjamini–Hochberg adjusted p-values
+
+For the Erastin analysis, genes were classified using:
+
+* adjusted p-value < 0.10
+* absolute log2 fold change > 0.5
+
+### Erastin vs Control
+
+| Metric            | Result |
+| ----------------- | -----: |
+| Genes analyzed    |    [N] |
+| Significant genes |    [N] |
+| Upregulated       |    [N] |
+| Downregulated     |    [N] |
+
+### Ferrostatin vs Control
+
+| Metric            | Result |
+| ----------------- | -----: |
+| Genes analyzed    |    [N] |
+| Significant genes |    [N] |
+| Upregulated       |    [N] |
+| Downregulated     |    [N] |
+
+> The thresholds above reflect the thresholds used in the analysis notebook.
+
+![Volcano Plot](figures/volcano_erastin.png)
+
+---
+
+## 4. Expression Pattern Analysis
+
+The 30 genes with the smallest adjusted p-values in the Erastin analysis were visualized using a hierarchical clustering heatmap.
+
+Expression values were standardized by gene to show relative expression patterns across samples.
+
+This analysis was used to assess whether the strongest transcriptional signals produced distinct expression patterns across Control, Erastin, and Ferrostatin samples.
+
+![Heatmap](figures/heatmap_top_DEGs.png)
+
+---
+
+## 5. Pathway Enrichment
+
+Two complementary enrichment approaches were used.
+
+### Enrichr
+
+Genes meeting the Erastin significance thresholds were submitted to GSEApy's Enrichr interface using:
+
+* KEGG 2021 Human
+* GO Biological Process 2023
+* Reactome 2022
+
+This analysis identifies biological pathways overrepresented among the selected significant genes.
+
+### Pre-ranked GSEA
+
+A separate pre-ranked GSEA was performed using the full gene list ranked by the Erastin log2 fold-change estimate.
+
+The same approach was also applied to the Ferrostatin ranking using KEGG and Reactome gene sets.
+
+### Top enriched pathways
+
+| Pathway     | NES | FDR |
+| ----------- | --: | --: |
+| [Pathway 1] | [X] | [X] |
+| [Pathway 2] | [X] | [X] |
+| [Pathway 3] | [X] | [X] |
+| [Pathway 4] | [X] | [X] |
+| [Pathway 5] | [X] | [X] |
+
+---
+
+# Key Findings
+
+The analysis identified transcriptional differences between control and treatment conditions.
+
+The Erastin-treated samples showed expression changes involving biological processes related to:
+
+* oxidative stress
+* glutathione metabolism
+* lipid metabolism
+* ferroptosis-associated processes
+
+Ferrostatin produced a different transcriptional profile from Erastin, with the direction and magnitude of changes examined through differential expression and pathway-level analyses.
+
+**Quantitative findings to be added after verification from the analysis outputs:**
+
+* [N] genes met the Erastin significance thresholds.
+* [N] genes were upregulated and [N] were downregulated.
+* PC1 and PC2 explained [X]% and [Y]% of total variance.
+* [Pathway] showed the strongest enrichment with NES [X] and FDR [X].
+* [Specific biological observation supported by the enrichment results.]
+
+## Biological Interpretation
+
+The observed transcriptional changes are consistent with cellular responses associated with ferroptosis, particularly processes involving oxidative stress, glutathione metabolism, and lipid metabolism.
+
+The contrasting profiles between Erastin and Ferrostatin provide evidence that the two treatments produced distinct transcriptional responses. However, a direct quantitative measure of reversal between Erastin and Ferrostatin was not calculated in this analysis, so the results are interpreted as **consistent with**, rather than definitive proof of, a transcriptional rescue effect.
+
+---
+
+# Limitations
+
+* The analysis uses the available processed expression matrix rather than beginning from raw sequencing reads.
+* The experiment contains a small number of samples per treatment group.
+* OLS on log2-transformed expression values was used for differential expression rather than a count-based RNA-seq model.
+* Pathway enrichment identifies statistical associations with biological processes but does not establish causal mechanisms.
+* Additional validation would be required to determine whether individual candidate genes have functional roles in ferroptosis.
+* A direct quantitative reversal analysis between Erastin and Ferrostatin was not performed.
+
+---
+
+# Reproducibility
+
+The analysis notebook contains the complete workflow used to:
+
+1. Load and transform the expression matrix
+2. Construct sample metadata
+3. Perform gene-wise OLS analysis
+4. Apply multiple-testing correction
+5. Generate differential expression results
+6. Create PCA, volcano plot, and heatmap visualizations
+7. Perform pathway enrichment and pre-ranked GSEA
+8. Save analysis results and figures
+
+## Output Structure
+
+```text
+results/
+├── differential_expression.csv
+├── significant_erastin.csv
+└── significant_ferrostatin.csv
+
+figures/
+├── pca_plot.png
+├── volcano_erastin.png
+└── heatmap_top_DEGs.png
+```
+
+## Conclusion
+
+This project applies statistical modeling, dimensionality reduction, differential expression analysis, visualization, and pathway-level analysis to investigate transcriptional responses to ferroptosis-related treatments in HepG2 cells.
+
+The workflow demonstrates how public transcriptomic data can be used to move from gene-level expression measurements to pathway-level biological interpretation.
