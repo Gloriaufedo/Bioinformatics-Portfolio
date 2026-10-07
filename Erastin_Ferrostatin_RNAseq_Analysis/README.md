@@ -119,7 +119,6 @@ For the Erastin analysis, genes were classified using:
 | Downregulated     |    [N] |
 
 > The thresholds above reflect the thresholds used in the analysis notebook.
-
 ![Volcano Plot](figures/volcano_erastin.png)
 
 ---
@@ -181,13 +180,54 @@ The Erastin-treated samples showed expression changes involving biological proce
 
 Ferrostatin produced a different transcriptional profile from Erastin, with the direction and magnitude of changes examined through differential expression and pathway-level analyses.
 
-**Quantitative findings to be added after verification from the analysis outputs:**
+## Differential Expression
 
-* [N] genes met the Erastin significance thresholds.
-* [N] genes were upregulated and [N] were downregulated.
-* PC1 and PC2 explained [X]% and [Y]% of total variance.
-* [Pathway] showed the strongest enrichment with NES [X] and FDR [X].
-* [Specific biological observation supported by the enrichment results.]
+The analysis identified transcriptional differences between Erastin-treated and Control HepG2 cells.
+
+The hierarchical clustering analysis highlighted the **30 most statistically significant genes**, comprising:
+
+* **15 upregulated genes**
+* **15 downregulated genes**
+
+Examples of genes showing increased expression in the Erastin-treated group included *NEO1, ATF3, TMEM206, ASNS,* and *G0S2*.
+
+Examples of genes showing decreased expression included *CD24, CSDC2, SLC12A3, TNS1,* and *AKR1C1*.
+
+These expression patterns provide candidate genes for further investigation of the transcriptional response to ferroptosis induction.
+
+---
+
+## Global Transcriptional Variation
+
+PCA showed strong separation between the experimental groups.
+
+**PC1 explained 64.2% of total variance**, while **PC2 explained 18.9%**, giving a combined variance explained of **83.1%**.
+
+PC1 separated all Erastin-treated samples from the Control and Ferrostatin samples, indicating that Erastin treatment produced the dominant transcriptional shift in the dataset.
+
+Ferrostatin samples occupied the same general PC1 region as Control samples, although one Ferrostatin replicate showed greater separation from the other two. PC2 provided additional separation between Control and Ferrostatin samples.
+
+Overall, the PCA pattern is consistent with Ferrostatin shifting the transcriptional profile away from the Erastin-associated state, although PCA alone does not establish a statistical rescue effect.
+
+---
+
+## Pathway-Level Analysis
+
+Two complementary approaches were used to investigate biological processes associated with the transcriptional changes:
+
+1. **Enrichr-based pathway enrichment** of genes meeting the Erastin differential-expression thresholds.
+2. **Pre-ranked GSEA** using the complete gene ranking based on Erastin log2 fold-change.
+
+The analyses investigated:
+
+* KEGG pathways
+* GO Biological Process
+* Reactome pathways
+
+The pathway-level results were used to investigate biological processes associated with oxidative stress, lipid metabolism, glutathione metabolism, and ferroptosis-related responses.
+
+Specific pathway names, normalized enrichment scores (NES), and FDR values will be reported from the GSEA output rather than inferred from the biological interpretation alone.
+
 
 ## Biological Interpretation
 
