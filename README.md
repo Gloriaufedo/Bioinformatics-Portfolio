@@ -1,143 +1,85 @@
 # 🧬 Computational Genomics & Bioinformatics Portfolio
 
-Welcome to my bioinformatics portfolio. This repository contains data-driven genomics pipelines built primarily on public cancer transcriptomics datasets, which offer the largest, best-annotated public resources for developing and testing these methods. The underlying goal is broader than cancer specifically: extracting biological signals from high-dimensional RNA-seq data, quantifying cellular and molecular heterogeneity, and evaluating clinically relevant biomarkers and survival associations using statistical and machine learning approaches. These methods apply wherever molecular variation helps explain differences in disease presentation or patient outcomes, including in cardiovascular and renal disease, an area closely related to this work.
+I am a Biochemistry graduate working at the intersection of molecular biology,
+data analysis and computational genomics.
+
+This portfolio contains reproducible analyses of public transcriptomics and
+single-cell RNA-seq datasets. My current work focuses on ferroptosis,
+differential expression, pathway enrichment, immune-cell infiltration and
+survival analysis.
+
+## Projects
+
+### 1. Erastin & Ferrostatin RNA-seq Analysis — HepG2
+
+**Question:** How does ferroptosis induction change gene expression, and can
+ferrostatin reverse part of this response?
+
+**Methods:** RNA-seq preprocessing, OLS differential expression, Benjamini-
+Hochberg FDR correction, GSEApy pathway enrichment.
+
+**Key finding:** [NUMBER OF DEGs], including [X] upregulated and [Y]
+downregulated genes. [TOP PATHWAY] showed the strongest enrichment
+([STATISTIC/P-VALUE]).
+
+[View project](link)
 
 ---
 
-## 📂 Repository Architecture
+### 2. Ferroptosis Biomarker Analysis — TCGA-LIHC
 
-```text
-├── Erastin_Ferrostatin_RNAseq_Anal.../
-│   ├── Data/
-│   ├── figures/
-│   ├── results/
-│   ├── README.md
-│   ├── analysis.ipynb
-│   └── requirements.txt
-│
-├── Ferroptosis Biomarker Discovery i.../
-│   ├── data/
-│   ├── figures/
-│   ├── results/
-│   ├── README.md
-│   ├── TCGA_LIHC_analysis.ipynb
-│   └── requirements.txt
-│
-├── Immune Microenvironment Analys.../
-|    ├── figures/
-|    ├── results/
-|    ├── Immune_Microenvironment_TCG...
-|    ├── README.md
-|    └── requirements.txt
-|
-└── Single Cell RNA-seq Analys.../
-     ├── data/
-     ├── figures/
-     ├── results/
-     ├── Single_Cell-RNA_seq_Analysis...
-     ├── README.md
-     └── requirements.txt
-```
----
+**Question:** Is GPX4 expression associated with tumor status and overall
+survival in liver hepatocellular carcinoma?
 
-🛠️ Core Tech Stack & Frameworks
+**Methods:** GDC API, RNA-seq normalization, tumor-vs-normal comparison,
+Kaplan-Meier analysis and log-rank testing.
 
-Bioinformatics Core: `GSEApy, Biopython, GDC API Client`
+**Key finding:** GPX4 expression was significantly higher in tumor tissue
+(p < 0.001). [ADD HAZARD RATIO/CI IF AVAILABLE].
 
-Survival Analytics: `Lifelines (Cox Proportional Hazards, Kaplan-Meier models)`
-
-Statistical Modeling & ML: `Scikit-learn, SciPy, Statsmodels`
-
-Data Processing: `Pandas, NumPy`
-
-Visualization Dashboarding: `Matplotlib, Seaborn`
+[View project](link)
 
 ---
 
-## 📋 Portfolio Projects Overview
+### 3. Immune Microenvironment & Survival — TCGA-LIHC
 
-### 🧬 Project 1: Erastin & Ferrostatin RNA-seq Analysis in HepG2 Cells
+**Question:** Is CD8 T-cell infiltration associated with survival after
+accounting for clinical factors?
 
-🎯 Objective
+**Methods:** ssGSEA and multivariable Cox proportional hazards regression,
+adjusting for age and AJCC stage.
 
-To investigate transcriptional changes in HepG2 liver cancer cells under ferroptosis induction (Erastin) and inhibition (Ferrostatin), identifying key genes and pathways involved in oxidative stress, lipid peroxidation, and iron-dependent cell death.
-Ferroptosis is increasingly implicated beyond cancer biology, including in cardiac ischemia-reperfusion injury and acute kidney injury, making the transcriptional signatures characterized here relevant to cardiovascular and renal disease contexts as well
+**Key finding:** CD8 T-cell enrichment was associated with improved survival
+(HR = 0.61, p = 0.04) after adjustment for clinical covariates.
 
-⚙️ Methodology
-- Loaded GEO RNA-seq expression matrix and applied log2(x + 1) normalization
-- Performed differential expression analysis using Ordinary Least Squares (OLS) regression
-- Controlled for multiple testing using Benjamini–Hochberg FDR correction
-- Conducted pathway enrichment analysis using GSEApy (KEGG, GO, Reactome databases)
-  
-**Key Result**
+[View project](link)
 
-Erastin induced strong transcriptional reprogramming associated with oxidative stress response, lipid metabolism disruption, and ferroptosis activation. Ferrostatin partially reversed these effects, confirming a protective transcriptional rescue effect.
+---
 
-### 🧬 Project 2: Ferroptosis Biomarker Discovery in TCGA-LIHC
+### 4. Single-Cell RNA-seq Analysis — Human PBMCs
 
-🎯 Objective
+**Question:** Can unsupervised clustering recover biologically distinct immune
+cell populations from PBMC single-cell RNA-seq data?
 
-To evaluate ferroptosis-related biomarkers in liver hepatocellular carcinoma (TCGA-LIHC), with a focus on GPX4 expression and its association with patient survival outcomes. GPX4 is the central regulator of the ferroptosis pathway, so the survival-modelling approach developed here (tumor vs normal comparison, Kaplan-Meier stratification, log-rank testing) is directly transferable to evaluating GPX4 or related oxidative-stress markers in cardiovascular and renal disease cohorts.
+**Methods:** QC, normalization, HVG selection, PCA, nearest-neighbor graph,
+Leiden clustering, UMAP and marker-based annotation.
 
-⚙️ Methodology
-- Retrieved RNA-seq counts and clinical metadata via the GDC API
-- Applied log2(Counts + 1) normalization
-- Compared tumor vs normal expression using statistical testing
-- Performed Kaplan-Meier survival analysis using median stratification
-- Conducted log-rank tests for survival significance
-  
-**Key Result**
+**Key finding:** [NUMBER OF CELLS RETAINED] cells were grouped into [NUMBER OF
+CLUSTERS] transcriptionally distinct populations, including [CELL TYPES].
 
-GPX4 was significantly upregulated in tumor tissues (p < 0.001). High GPX4 expression was associated with poorer overall survival over a 5-year follow-up period (p < 0.05).
+[View project](link)
 
-### 🧬 Project 3: Immune Microenvironment Analysis in TCGA-LIHC
+## Methods & Tools
 
-🎯 Objective
+- Python: pandas, NumPy, SciPy, statsmodels
+- Genomics: GDC API, GSEApy
+- Survival analysis: lifelines
+- Single-cell analysis: [ACTUAL PACKAGES USED]
+- Visualization: Matplotlib, Seaborn
+- Reproducibility: Jupyter, requirements.txt
 
-To investigate how tumor immune infiltration relates to patient survival in liver hepatocellular carcinoma, focusing on CD8 T-cell activity as a prognostic immune biomarker.
+## Research interests
 
-⚙️ Methodology
-- Performed single-sample Gene Set Enrichment Analysis (ssGSEA) using GSEApy to quantify immune cell infiltration scores per patient
-- Built a multivariable Cox Proportional Hazards model using lifelines
-- Adjusted for clinical covariates including age at diagnosis and AJCC tumor stage
-- Evaluated CD8 T-cell infiltration as a continuous variable rather than binary stratification
-
-**Key Result**
-
-While univariable Kaplan-Meier analysis showed no significant association (p = 0.120), multivariable Cox regression revealed that CD8 T-cell infiltration was significantly associated with improved survival outcomes after adjusting for clinical covariates (p = 0.04, HR = 0.61). This corresponds to an estimated 39% reduction in mortality risk per unit increase in CD8 T-cell enrichment.
-
---- 
-
-### 🧬 Project 4: Single-Cell RNA-seq Analysis of Human PBMCs
-
-🎯 Objective
-To analyze single-cell transcriptomics data from human peripheral blood mononuclear cells (PBMCs) and map the immune cell landscape through unsupervised clustering, differential expression profiling, and canonical marker gene annotation.
-
-⚙️ Methodology
-- Processed a 10x Genomics scRNA-seq count matrix into an AnnData structure containing 2,700 cells and 32,738 genes.
-- Filtered low-quality cells and doublets by enforcing a strict threshold of < 2,500 genes and < 5% mitochondrial read counts per cell.
-- Applied target-sum normalization (10^4 reads per cell) and log-transformation (ln(counts + 1)) to stabilize count variance.
-- Extracted the top 2,000 highly variable genes (HVGs) and applied z-score scaling with extreme value clipping.
-- Performed Principal Component Analysis (PCA) and constructed a nearest-neighbor graph utilizing the top 40 principal components.
-- Implemented the Leiden community detection algorithm to capture transcriptionally distinct cellular populations.
-- Generated a two-dimensional UMAP embedding for low-dimensional layout visualization of the clusters.
-- Annotated clusters to specific immunological lineages using established canonical markers: CD3D/CD8A (T Cells), NKG7 (NK Cells), MS4A1 (B Cells), and LYZ (Monocytes).
-- Executed Wilcoxon rank-sum testing to identify and rank the top differentially expressed marker genes driving cluster separation.
-
-**Key Result**
-
-The unsupervised pipeline successfully resolved distinct lymphoid and myeloid subpopulations from the mixed PBMC profile. Localized canonical marker expression directly validated the unsupervised cluster boundaries, while differential expression testing pinpointed highly specific, cluster-defining transcriptional signatures corresponding to standard human immune reference atlases.
-
-## 🔬 Key Analytical Principles Applied
-
-1. Control of Confounding Variables
-
-Survival associations were evaluated using multivariable regression models to account for clinical confounders such as tumor stage and age.
-
-2. Rank-Based Immune Scoring (ssGSEA)
-
-Immune infiltration was quantified using ranking-based enrichment scoring, improving robustness to batch effects and expression scaling differences.
-
-3. Reproducible Pipeline Design
-
-Each project includes structured directories for raw data, processed results, figures, and executable notebooks to ensure reproducibility.
+Computational genomics, transcriptomics, ferroptosis, oxidative stress,
+cancer biology, molecular biomarkers and statistical analysis of patient-level
+data.
