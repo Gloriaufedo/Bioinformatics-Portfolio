@@ -52,7 +52,7 @@ adjusting for age and AJCC stage.
 **Key finding:** CD8 T-cell enrichment was associated with improved survival
 (HR = 0.61, p = 0.04) after adjustment for clinical covariates.
 
-[View project](link)
+[View project](https://github.com/Gloriaufedo/Bioinformatics-Portfolio/tree/d5d2958b0836f54cd0e5308009f5a2ed770e40c8/Immune%20Microenvironment%20Analysis%20in%20TCGA-LIHC)
 
 ---
 
