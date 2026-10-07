@@ -37,7 +37,7 @@ Kaplan-Meier analysis and log-rank testing.
 **Key finding:** GPX4 expression was significantly higher in tumor tissue
 (p < 0.001). [ADD HAZARD RATIO/CI IF AVAILABLE].
 
-[View project](link)
+[View project](https://github.com/Gloriaufedo/Bioinformatics-Portfolio/tree/d5d2958b0836f54cd0e5308009f5a2ed770e40c8/Ferroptosis%20Biomarker%20Discovery%20in%20TCGA-LIHC)
 
 ---
 
