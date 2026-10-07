@@ -67,7 +67,7 @@ Leiden clustering, UMAP and marker-based annotation.
 **Key finding:** [NUMBER OF CELLS RETAINED] cells were grouped into [NUMBER OF
 CLUSTERS] transcriptionally distinct populations, including [CELL TYPES].
 
-[View project](link)
+[View project](https://github.com/Gloriaufedo/Bioinformatics-Portfolio/tree/d39f2e9d8aea4446d98c49988378f15f1595cbb2/Single-Cell%20RNA-seq%20Analysis%20of%20Human%20PBMCs)
 
 ## Methods & Tools
 
