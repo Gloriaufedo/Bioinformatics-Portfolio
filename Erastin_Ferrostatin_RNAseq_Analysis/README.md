@@ -59,7 +59,22 @@ PCA was performed on the transformed expression matrix to examine global transcr
 
 The first two principal components were used to visualize sample-level clustering and assess whether treatment groups showed separation in their overall transcriptional profiles.
 
-**Result:** [Describe the actual separation observed in PC1/PC2 and include variance explained once verified.]
+**Result:** ## 2. Principal Component Analysis
+
+PCA was performed on the log2-transformed expression matrix to assess global transcriptional differences between the experimental groups.
+
+The first two principal components explained **83.1% of the total variance**, with **PC1 accounting for 64.2%** and **PC2 accounting for 18.9%**.
+
+* **PC1 (64.2%)** separated all three Erastin-treated samples from the Control and Ferrostatin samples.
+* **PC2 (18.9%)** provided additional separation between Control and Ferrostatin samples.
+* Control samples clustered relatively closely, while Ferrostatin showed greater within-group variation, including one sample that appeared separated from the other two Ferrostatin samples.
+* The Erastin samples showed the largest overall transcriptional shift along PC1.
+
+Together, these patterns indicate that **Erastin treatment is the dominant source of transcriptional variation in the dataset**, while Ferrostatin samples occupy the same general PC1 region as Control samples but retain some transcriptional differences.
+
+The positioning of Ferrostatin relative to Erastin is **consistent with a partial shift away from the Erastin-associated transcriptional state**, but PCA alone does not establish a statistical rescue effect.
+
+> **Interpretation:** PC1 (64.2% of variance) clearly separates Erastin-treated samples from Control and Ferrostatin samples, while PC2 (18.9%) provides additional separation between Control and Ferrostatin. Together, the two components explain 83.1% of the variance.
 
 ![PCA](figures/pca_plot.png)
 
